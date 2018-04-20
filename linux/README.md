@@ -1,4 +1,4 @@
-####Tópicos Linux 
+#### Tópicos Linux 
 
 Você sempre teve dificuldades em utilizar o shell?
 
@@ -8,7 +8,7 @@ Não sabe como instalar aquela dependência de sua aplicação no Linux?
 
 As letrinhas -rwx-r-xr- somente confundem sua cabeça?
 
-#####SEUS PROBLEMAS ACABARAM! :)
+##### SEUS PROBLEMAS ACABARAM! :)
 
 Durante o treinamento você irá aprender como utilizar esse sistema
 operacional que reina em absoluto nos maiores data centers do mundo e
