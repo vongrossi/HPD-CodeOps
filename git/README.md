@@ -24,3 +24,81 @@ No final, você terá conhecimentos para:
 - Realizar merges;
 
 ##### Exemplos serão adicionados abaixo:
+
+
+#### git flow
+
+git init   
+git config --global user.name    
+git config --global core.editor "vim"   
+git status   
+git add .  
+git commit -m "message"   
+git login    
+git remote add origin host/user/projeto   
+git push origin | branch  
+git pull  
+
+----
+
+
+#### ssh key
+
+
+ssh-keygen -t rsa -b 4096 -C "user@domain"
+
+-----
+git log
+
+git log -online
+
+git reset HEAD 
+git commit --amend
+git rm 
+
+
+git clone host/user/projeto   
+git config --global core.excludesfile ~/.gitignore_global  
+git checkout -b "branch"  
+git branch  
+git diff    
+git merge branch   
+git branch -D branch  
+git push origin   
+git tag  
+git tag -a v1.0 -m "mesage"  
+git push origin --tag   
+git checkout tag   
+git tag -d tag   
+
+----
+
+##### git flow
+
+apt-get instal git-flow
+
+yum install gitflow
+
+----
+
+
+
+git flow init  
+git flow feature start   
+git flow feature finish   
+git flow feature publish   
+git flow release start   
+git flow release publish   
+git push origin --tags  
+
+git flow
+
+   init      Initialize a new git repo with support for the branching model.  
+   feature   Manage your feature branches.  
+   bugfix    Manage your bugfix branches.  
+   release   Manage your release branches.  
+   hotfix    Manage your hotfix branches.  
+   support   Manage your support branches.  
+   version   Shows version information.  
+   config    Manage your git-flow configuration.  
+   log       Show log deviating from base branch.  
