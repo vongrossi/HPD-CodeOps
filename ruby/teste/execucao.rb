@@ -1,0 +1,3 @@
+require './validacao'
+
+validacao(true)
