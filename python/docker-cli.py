@@ -28,44 +28,51 @@ def criar_container(args):
 
 def listar(args):
     """Listando os containers e suas respectivas imagens"""
-    client = docker.from_env()
-    get_all = client.containers.list()
-    for cada_container in get_all:
-        conectando = client.containers.get(cada_container.id)
-        print("O container %s utiliza a imagem %s e esta rodando o comando %s" % (conectando.short_id, conectando.attrs['Config']['Image'], conectando.attrs['Config']['Cmd']))
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+            conectando = client.containers.get(cada_container.id)
+            print("O container %s utiliza a imagem %s e esta rodando o comando %s" % (conectando.short_id, conectando.attrs['Config']['Image'], conectando.attrs['Config']['Cmd']))
+    except Exception as e:
+        logando('Erro! Favor verificar o comando digitado =( ', e)
+    finally:
+        print('Comando executado com sucesso!!!  =) ')
+
+
 
 def procurar_container(args):
     """Procurando containers"""
-    client = docker.from_env()
-    get_all = client.containers.list()
-    for cada_container in get_all:
-        conectando = client.containers.get(cada_container.id)
-        imagem_container = conectando.attrs['Config']['Image']
-        if str(args.imagem).lower() in str(imagem_container).lower():
-            print("Encontrei o container %s que contem a palavra %s no nome de sua imagem: %s" % (cada_container.short_id, args.imagem, imagem_container))
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+            conectando = client.containers.get(cada_container.id)
+            imagem_container = conectando.attrs['Config']['Image']
+            if str(args.imagem).lower() in str(imagem_container).lower():
+                print("Encontrei o container %s que contem a palavra %s no nome de sua imagem: %s" % (cada_container.short_id, args.imagem, imagem_container))
+    except Exception as e:
+        logando('Erro! Favor verificar o comando digitado =( ', e)
+    finally:
+        print('Comando executado com sucesso!!!  =) ')
 
 
 def remover_container(args):
     """Removendo os  containers"""
-    client = docker.from_env()
-    get_all = client.containers.list()
-    for cada_container in get_all:
-        conectando = client.containers.get(cada_container.id)
-        if 'ExposedPorts' in (conectando.attrs['Config']):
-            print ("foi removido o container %s de imagem %s " % (conectando.short_id, conectando.attrs['Config']['Image']))
-            conectando.kill()
-        else: 
-           print("O container %s de imagem %s sera mantido" % (conectando.short_id, conectando.attrs['Config']['Image']))
-
-        #print("O container %s " % (conectando.attrs['Config']))
-
-        
-        #print("container %s  nao sera removido %s" % (conectando.attrs['Config']['Image'], conectando.attrs['Config']['ExposedPort']))
-        #if (conectando.attrs['Config']['ExposedPort']) = KeyError:
-        
-        #    print("container %s  nao sera removido" % conectando.attrs['Config']['Image'])
-
-        #print("O container %s utiliza a imagem %s e esta rodando =) %s" % (conectando.short_id, conectando.attrs['Config']['Image'], conectando.attrs['Config']['ExposedPort']))
+    try:
+        client = docker.from_env()
+        get_all = client.containers.list()
+        for cada_container in get_all:
+            conectando = client.containers.get(cada_container.id)
+            if 'ExposedPorts' in (conectando.attrs['Config']):
+                print ("foi removido o container %s imagem %s estava expondo porta" % (conectando.short_id, conectando.attrs['Config']['Image']))
+                conectando.kill()
+            else: 
+                print("O container %s de imagem %s sera mantido" % (conectando.short_id, conectando.attrs['Config']['Image']))
+    except Exception as e:
+        logando('Erro! Favor verificar o comando digitado =( ', e)
+    finally:
+        print('Comando executado com sucesso!!!  =) ')
 
 
 parser = argparse.ArgumentParser(description="Meu CLI docker foderoso feito durante a aula do HPD.")
